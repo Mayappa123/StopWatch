@@ -9,10 +9,16 @@ body {
 
 .stopwatch {
     text-align: center;
+    width: 300px;
     background: #fff;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+h1 {
+    display: block;
+    text-align: center;
+    margin-bottom: 20px;
 }
 
 #display {
@@ -21,20 +27,35 @@ body {
 }
 
 .buttons button {
+    width: 100px;
     font-size: 1rem;
     padding: 10px 20px;
     margin: 5px;
     border: none;
-    border-radius: 5px;
+    border-radius: 25px;
     cursor: pointer;
+    /* box-shadow: 2px 2px 5px rgb(219, 206, 82), 2px -2px 5px rgb(140, 192, 91), -2px 2px 5px rgb(127, 63, 211),
+    -2px -2px 5px rgb(218, 52, 204); */
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
+
 #startStop {
-    background-color: #28a745;
+    background-color: green;
     color: white;
+}
+
+#startStop:hover {
+    background-color: #218838;
+    transform: scale(1.05);
 }
 
 #reset {
-    background-color: #dc3545;
+    background-color: red;
     color: white;
+}
+
+#reset:hover {
+    background-color: #c82333;
+    transform: scale(1.05);
 }
