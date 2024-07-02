@@ -68,9 +68,9 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 ## 📞 Contact
 
-Your Name - [@your-twitter-handle](https://twitter.com/your-twitter-handle) - your-email@example.com
+Mayappa Pujari - [LinkedIn](https://www.linkedin.com/in/mayappa-pujari-625432182) - mayappapujari561999@gmail.com
 
-Project Link: [https://github.com/Mayappa123/StopWatch](https://github.com/Mayappa123/StopWatch)
+Project Source Code Link: [https://github.com/Mayappa123/StopWatch](https://github.com/Mayappa123/StopWatch)
 
 ## 🙏 Acknowledgements
 
@@ -78,4 +78,6 @@ Project Link: [https://github.com/Mayappa123/StopWatch](https://github.com/Mayap
 - [Choose an Open Source License](https://choosealicense.com)
 - [GitHub Pages](https://pages.github.com)
 - [Font Awesome](https://fontawesome.com)
-- [Unsplash](https
+
+
+
