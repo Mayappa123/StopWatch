@@ -15,6 +15,7 @@ body {
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
+
 h1 {
     display: block;
     text-align: center;
@@ -34,28 +35,61 @@ h1 {
     border: none;
     border-radius: 25px;
     cursor: pointer;
-    /* box-shadow: 2px 2px 5px rgb(219, 206, 82), 2px -2px 5px rgb(140, 192, 91), -2px 2px 5px rgb(127, 63, 211),
-    -2px -2px 5px rgb(218, 52, 204); */
-    transition: background-color 0.3s ease, transform 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
 }
-
 
 #startStop {
     background-color: green;
     color: white;
+    box-shadow: 2px 2px 5px rgba(0, 128, 0, 0.6);
 }
 
 #startStop:hover {
     background-color: #218838;
     transform: scale(1.05);
+    box-shadow: 2px 2px 5px rgba(0, 128, 0, 0.8);
 }
 
 #reset {
     background-color: red;
     color: white;
+    box-shadow: 2px 2px 5px rgba(255, 0, 0, 0.6);
 }
 
 #reset:hover {
     background-color: #c82333;
     transform: scale(1.05);
+    box-shadow: 2px 2px 5px rgba(255, 0, 0, 0.8);
 }
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .stopwatch {
+        width: 90%;
+        padding: 10px;
+    }
+
+    #display {
+        font-size: 2.5rem;
+    }
+
+    .buttons button {
+        width: 80px;
+        font-size: 0.9rem;
+        padding: 8px 15px;
+    }
+}
+
+@media (max-width: 400px) {
+    #display {
+        font-size: 2rem;
+    }
+
+    .buttons button {
+        width: 70px;
+        font-size: 0.8rem;
+        padding: 6px 10px;
+    }
+}
+
+
