@@ -1,40 +1,59 @@
-let [milliseconds, seconds, minutes] = [0, 0, 0];
-let timerRef = document.getElementById('display');
-let int = null;
+let startStopBtn = document.getElementById("startStop");
+let resetBtn = document.getElementById("reset");
+let display = document.getElementById("display");
+let themeSwitch = document.getElementById("themeSwitch");
 
-document.getElementById('startStop').addEventListener('click', () => {
-    if (int !== null) {
-        clearInterval(int);
-        int = null;
-        document.getElementById('startStop').innerText = 'Start';
-    } else {
-        int = setInterval(displayTimer, 10);
-        document.getElementById('startStop').innerText = 'Stop';
-    }
+let timer = null;
+let elapsedTime = 0;
+let running = false;
+
+startStopBtn.addEventListener("click", () => {
+  if (running) {
+    clearInterval(timer);
+    startStopBtn.textContent = "Start";
+    running = false;
+  } else {
+    timer = setInterval(updateTime, 10); // Update every 10 milliseconds
+    startStopBtn.textContent = "Stop";
+    running = true;
+  }
 });
 
-document.getElementById('reset').addEventListener('click', () => {
-    clearInterval(int);
-    int = null;
-    [milliseconds, seconds, minutes] = [0, 0, 0];
-    timerRef.innerHTML = '00:00:00';
-    document.getElementById('startStop').innerText = 'Start';
+resetBtn.addEventListener("click", () => {
+  clearInterval(timer);
+  elapsedTime = 0;
+  display.textContent = "00:00:00:000";
+  startStopBtn.textContent = "Start";
+  running = false;
 });
 
-function displayTimer() {
-    milliseconds += 10;
-    if (milliseconds == 1000) {
-        milliseconds = 0;
-        seconds++;
-        if (seconds == 60) {
-            seconds = 0;
-            minutes++;
-        }
-    }
+function updateTime() {
+  elapsedTime += 10;
+  let milliseconds = elapsedTime % 1000;
+  let totalSeconds = Math.floor(elapsedTime / 1000);
+  let hours = Math.floor(totalSeconds / 3600);
+  let minutes = Math.floor((totalSeconds % 3600) / 60);
+  let seconds = totalSeconds % 60;
 
-    let m = minutes < 10 ? '0' + minutes : minutes;
-    let s = seconds < 10 ? '0' + seconds : seconds;
-    let ms = milliseconds < 10 ? '00' + milliseconds : milliseconds < 100 ? '0' + milliseconds : milliseconds;
-
-    timerRef.innerHTML = `${m}:${s}:${ms}`;
+  display.textContent = `${pad(hours)}:${pad(minutes)}:${pad(
+    seconds
+  )}:${padMilliseconds(milliseconds)}`;
 }
+
+function pad(unit) {
+  return unit < 10 ? "0" + unit : unit;
+}
+
+function padMilliseconds(unit) {
+  if (unit < 10) {
+    return "00" + unit;
+  } else if (unit < 100) {
+    return "0" + unit;
+  } else {
+    return unit;
+  }
+}
+
+themeSwitch.addEventListener("change", () => {
+  document.body.classList.toggle("dark");
+});

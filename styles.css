@@ -1,73 +1,112 @@
 body {
+  background-color: var(--bg-color);
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-color: #f0f0f0;
-  font-family: Arial, sans-serif;
+  font-family: 'Poppins', sans-serif;
+  color: var(--text-color);
+  transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+:root {
+  --bg-color: #ffffff;
+  --text-color: #333;
+  --stopwatch-bg: rgba(255, 255, 255, 0.8);
+  --button-color: #fff;
+  --start-bg: #28a745;
+  --start-hover: #218838;
+  --reset-bg: #dc3545;
+  --reset-hover: #c82333;
+}
+
+body.dark {
+  --bg-color: #333;
+  --text-color: #f0f0f0;
+  --stopwatch-bg: rgba(0, 0, 0, 0.8);
+  --button-color: #333;
+  --start-bg: #28a745;
+  --start-hover: #218838;
+  --reset-bg: #dc3545;
+  --reset-hover: #c82333;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.custom-control.custom-switch {
+  position: absolute;
+  top: 20px;
+  right: 20px;
 }
 
 .stopwatch {
   text-align: center;
-  width: 300px;
-  background: #fff;
+  width: 430px;
+  background: var(--stopwatch-bg);
   padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 15px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
 }
 
 h1 {
   display: block;
   text-align: center;
   margin-bottom: 20px;
+  font-size: 2rem;
 }
 
 #display {
-  font-size: 3rem;
+  font-size: 3.5rem;
   margin-bottom: 20px;
+  font-weight: bold;
+  width: 300px; /* Fixed width to prevent shifting */
+  letter-spacing: 2px; /* Space out characters for better readability */
 }
 
 .buttons button {
-  width: 100px;
+  width: 120px;
   font-size: 1rem;
-  padding: 10px 20px;
-  margin: 5px;
+  padding: 12px 20px;
+  margin: 10px;
   border: none;
   border-radius: 25px;
   cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.3s ease,
-    box-shadow 0.3s ease;
+  color: var(--button-color);
+  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 #startStop {
-  background-color: green;
-  color: white;
-  box-shadow: 2px 2px 5px rgba(0, 128, 0, 0.6);
+  background-color: var(--start-bg);
+  box-shadow: 0 4px 10px rgba(40, 167, 69, 0.5);
 }
 
 #startStop:hover {
-  background-color: #218838;
-  transform: scale(1.05);
-  box-shadow: 2px 2px 5px rgba(0, 128, 0, 0.8);
+  background-color: var(--start-hover);
+  transform: scale(1.1);
+  box-shadow: 0 6px 12px rgba(40, 167, 69, 0.7);
 }
 
 #reset {
-  background-color: red;
-  color: white;
-  box-shadow: 2px 2px 5px rgba(255, 0, 0, 0.6);
+  background-color: var(--reset-bg);
+  box-shadow: 0 4px 10px rgba(220, 53, 69, 0.5);
 }
 
 #reset:hover {
-  background-color: #c82333;
-  transform: scale(1.05);
-  box-shadow: 2px 2px 5px rgba(255, 0, 0, 0.8);
+  background-color: var(--reset-hover);
+  transform: scale(1.1);
+  box-shadow: 0 6px 12px rgba(220, 53, 69, 0.7);
 }
 
 /* Responsive Design */
 @media (max-width: 600px) {
   .stopwatch {
     width: 90%;
-    padding: 10px;
+    padding: 15px;
   }
 
   #display {
@@ -75,9 +114,9 @@ h1 {
   }
 
   .buttons button {
-    width: 80px;
+    width: 100px;
     font-size: 0.9rem;
-    padding: 8px 15px;
+    padding: 10px 15px;
   }
 }
 
@@ -87,8 +126,8 @@ h1 {
   }
 
   .buttons button {
-    width: 70px;
+    width: 90px;
     font-size: 0.8rem;
-    padding: 6px 10px;
+    padding: 8px 10px;
   }
 }

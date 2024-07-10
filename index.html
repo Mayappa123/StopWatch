@@ -4,16 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Stopwatch</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="stopwatch">
-        <div id="display">00:00:00</div>
-        <div class="buttons">
-            <button id="startStop">Start</button>
-            <button id="reset">Reset</button>
+    <div class="container">
+        <div class="custom-control custom-switch">
+            <input type="checkbox" class="custom-control-input" id="themeSwitch">
+            <label class="custom-control-label" for="themeSwitch">Day/Night Mode</label>
+        </div>
+        <div class="stopwatch">
+            <div id="display">00:00:00.000</div>
+            <div class="buttons">
+                <button id="startStop" class="btn btn-success">Start</button>
+                <button id="reset" class="btn btn-danger">Reset</button>
+            </div>
         </div>
     </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
