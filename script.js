@@ -13,7 +13,7 @@ startStopBtn.addEventListener("click", () => {
     startStopBtn.textContent = "Start";
     running = false;
   } else {
-    timer = setInterval(updateTime, 10); 
+    timer = setInterval(updateTime, 10); // Update every 10 milliseconds
     startStopBtn.textContent = "Stop";
     running = true;
   }
@@ -22,7 +22,7 @@ startStopBtn.addEventListener("click", () => {
 resetBtn.addEventListener("click", () => {
   clearInterval(timer);
   elapsedTime = 0;
-  display.textContent = "00:00:00:000";
+  display.textContent = "00:00:00.000";
   startStopBtn.textContent = "Start";
   running = false;
 });
@@ -37,7 +37,7 @@ function updateTime() {
 
   display.textContent = `${pad(hours)}:${pad(minutes)}:${pad(
     seconds
-  )}:${padMilliseconds(milliseconds)}`;
+  )}.${padMilliseconds(milliseconds)}`;
 }
 
 function pad(unit) {
@@ -56,8 +56,14 @@ function padMilliseconds(unit) {
 
 themeSwitch.addEventListener("change", () => {
   document.body.classList.add("transition");
-  document.body.classList.toggle("dark");
+  if (document.body.classList.contains("day")) {
+    document.body.classList.remove("day");
+    document.body.classList.add("night");
+  } else {
+    document.body.classList.remove("night");
+    document.body.classList.add("day");
+  }
   setTimeout(() => {
     document.body.classList.remove("transition");
-  }, 500); 
+  }, 500); // match the duration of CSS transition
 });
