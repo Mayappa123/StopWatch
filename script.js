@@ -13,7 +13,7 @@ startStopBtn.addEventListener("click", () => {
     startStopBtn.textContent = "Start";
     running = false;
   } else {
-    timer = setInterval(updateTime, 10); // Update every 10 milliseconds
+    timer = setInterval(updateTime, 10); 
     startStopBtn.textContent = "Stop";
     running = true;
   }
@@ -55,5 +55,9 @@ function padMilliseconds(unit) {
 }
 
 themeSwitch.addEventListener("change", () => {
+  document.body.classList.add("transition");
   document.body.classList.toggle("dark");
+  setTimeout(() => {
+    document.body.classList.remove("transition");
+  }, 500); 
 });

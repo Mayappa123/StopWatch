@@ -1,11 +1,11 @@
 body {
   background-color: var(--bg-color);
+  color: var(--text-color);
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  font-family: 'Poppins', sans-serif;
-  color: var(--text-color);
+  font-family: "Poppins", sans-serif;
   transition: background-color 0.5s ease, color 0.5s ease;
 }
 
@@ -51,6 +51,7 @@ body.dark {
   border-radius: 15px;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
   backdrop-filter: blur(10px);
+  transition: background-color 0.5s ease;
 }
 
 h1 {
@@ -64,8 +65,8 @@ h1 {
   font-size: 3.5rem;
   margin-bottom: 20px;
   font-weight: bold;
-  width: 300px; /* Fixed width to prevent shifting */
-  letter-spacing: 2px; /* Space out characters for better readability */
+  width: 300px;
+  letter-spacing: 2px;
 }
 
 .buttons button {
@@ -77,7 +78,8 @@ h1 {
   border-radius: 25px;
   cursor: pointer;
   color: var(--button-color);
-  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
 #startStop {
@@ -102,7 +104,6 @@ h1 {
   box-shadow: 0 6px 12px rgba(220, 53, 69, 0.7);
 }
 
-/* Responsive Design */
 @media (max-width: 600px) {
   .stopwatch {
     width: 90%;
